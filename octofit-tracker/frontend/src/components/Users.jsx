@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+// Example Codespaces API endpoint:
+// `https://${import.meta.env.VITE_CODESPACE_NAME}-8000.app.github.dev/api/users/`
 function normalizeResponse(data) {
   if (Array.isArray(data)) return data;
   if (data.users) return data.users;
