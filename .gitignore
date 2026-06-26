@@ -31,3 +31,6 @@ yarn-error.log*
 # Python files
 *.pyc
 __pycache__/
+
+# Frontend build output
+octofit-tracker/frontend/dist

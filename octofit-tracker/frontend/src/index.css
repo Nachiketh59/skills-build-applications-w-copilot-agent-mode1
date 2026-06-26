@@ -4,36 +4,129 @@
   background: #f8fafc;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: #f8fafc;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 .app-shell {
-  max-width: 42rem;
+  max-width: 1000px;
   width: 100%;
-  margin: 2rem;
-  padding: 2rem;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
   border-radius: 1.25rem;
   background: #ffffff;
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
-  text-align: center;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
 }
 
-button {
-  margin-top: 1.25rem;
-  padding: 0.9rem 1.4rem;
-  border: none;
+.app-header {
+  margin-bottom: 1.5rem;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(2rem, 2.2vw, 2.75rem);
+}
+
+.app-note {
+  margin: 0.75rem 0 0;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.app-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.app-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 106px;
+  padding: 0.75rem 1rem;
+  color: #0f172a;
+  text-decoration: none;
+  border: 1px solid #e2e8f0;
   border-radius: 9999px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.app-nav a:hover {
+  background: #eff6ff;
+}
+
+.app-nav a.active {
   background: #2563eb;
   color: white;
-  font-weight: 700;
-  cursor: pointer;
+  border-color: transparent;
 }
 
-button:hover {
-  background: #1d4ed8;
+.app-content {
+  padding: 1rem 0;
+}
+
+.section-title {
+  margin-top: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.section-copy {
+  margin-bottom: 1.5rem;
+  color: #475569;
+}
+
+.entity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.entity-card {
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  background: #f8fafc;
+}
+
+.entity-card strong {
+  color: #0f172a;
+}
+
+.entity-card p {
+  margin: 0.35rem 0;
+  color: #475569;
+}
+
+.message-box {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+.error-box {
+  background: #fee2e2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    margin: 1rem;
+    padding: 1rem;
+  }
 }
