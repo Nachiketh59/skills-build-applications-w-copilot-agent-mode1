@@ -1,5 +1,5 @@
 import express from 'express';
-import mongoose from 'mongoose';
+import { connectDatabase } from './database';
 import User from './models/user';
 import Team from './models/team';
 import Activity from './models/activity';
@@ -12,7 +12,6 @@ const CODESPACE_NAME = process.env.CODESPACE_NAME;
 const apiBaseUrl = CODESPACE_NAME
   ? `https://${CODESPACE_NAME}-8000.app.github.dev`
   : `http://localhost:${PORT}`;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/octofit_db';
 
 app.use(express.json());
 
@@ -70,12 +69,9 @@ app.get('/api/workouts/', async (_req, res) => {
   }
 });
 
-mongoose.set('strictQuery', false);
-
-mongoose
-  .connect(MONGODB_URI)
+connectDatabase()
   .then(() => {
-    console.log(`Connected to MongoDB at ${MONGODB_URI}`);
+    console.log(`Connected to MongoDB`);
     console.log(`API base URL is ${apiBaseUrl}`);
     app.listen(PORT, () => {
       console.log(`Backend server running at http://localhost:${PORT}`);
